@@ -1,0 +1,114 @@
+name: "Tutorial Network — TutorialCorp"
+subnet: "192.168.1.0/24"
+hosts:
+  - ip: "192.168.1.1"
+    hostname: "router-gw"
+    os: "Cisco IOS 15.1"
+    firewall_level: 0
+    services:
+      - name: "http"
+        port: 80
+        version: "Cisco HTTP 1.0"
+        vulnerable: false
+        exploit_name: null
+        credentials: {}
+    files: {}
+    users: []
+
+  - ip: "192.168.1.10"
+    hostname: "dev-workstation"
+    os: "Ubuntu 20.04 LTS"
+    firewall_level: 0
+    services:
+      - name: "ssh"
+        port: 22
+        version: "OpenSSH 7.2p2"
+        vulnerable: true
+        exploit_name: "ssh_enum_users"
+        credentials:
+          username: "developer"
+          password: "password123"
+      - name: "http"
+        port: 8080
+        version: "Apache 2.4.18"
+        vulnerable: false
+        exploit_name: null
+        credentials: {}
+    files:
+      "/home/developer/notes.txt": |
+        TODO:
+        - Fix the login page CSS
+        - Ask admin about DB access
+        - Reminder: the DB config is in /opt/config.ini
+      "/home/developer/.bash_history": |
+        cd /opt
+        cat config.ini
+        mysql -h 192.168.1.20 -u dbadmin -p
+        nano /var/www/html/index.php
+      "/opt/config.ini": |
+        [database]
+        db_host=192.168.1.20
+        db_user=dbadmin
+        db_pass=S3cureDB!
+        db_name=customers
+      "/etc/passwd": |
+        root:x:0:0:root:/root:/bin/bash
+        developer:x:1000:1000:Developer:/home/developer:/bin/bash
+        www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+      "/etc/shadow": "[PERMISSION DENIED — need root access]"
+      "/var/www/html/index.php": |
+        <?php
+        // TutorialCorp Employee Portal v2.1
+        // TODO: fix SQL injection in login form
+        require_once 'config.php';
+        echo "<h1>Welcome to TutorialCorp</h1>";
+        ?>
+    users:
+      - name: "developer"
+        role: "Junior Developer"
+        email: "dev@tutorialcorp.com"
+
+  - ip: "192.168.1.20"
+    hostname: "db-server"
+    os: "CentOS 7"
+    firewall_level: 1
+    services:
+      - name: "mysql"
+        port: 3306
+        version: "MySQL 5.7.31"
+        vulnerable: true
+        exploit_name: "mysql_auth_bypass"
+        credentials:
+          username: "dbadmin"
+          password: "S3cureDB!"
+      - name: "ssh"
+        port: 22
+        version: "OpenSSH 8.0"
+        vulnerable: false
+        exploit_name: null
+        credentials:
+          username: "dbadmin"
+          password: "S3cureDB!"
+    files:
+      "/var/lib/mysql/customers.db": |
+        [DATABASE FILE — 10,247 customer records]
+        Columns: id, full_name, email, phone, credit_card_hash, address
+        Size: 24.3 MB
+        Last modified: 2024-11-15
+      "/root/flag.txt": "[REQUIRES ROOT] Congratulations! You found the secret flag: CTF{burunduk_h4ck3r_2024}"
+      "/etc/mysql/my.cnf": |
+        [mysqld]
+        bind-address = 0.0.0.0
+        port = 3306
+        datadir = /var/lib/mysql
+        # WARNING: remote root login enabled for debugging
+      "/home/dbadmin/backup_script.sh": |
+        #!/bin/bash
+        # Daily backup script
+        mysqldump -u root -p'r00tP@ss!' customers > /tmp/backup.sql
+        scp /tmp/backup.sql backup@192.168.1.30:/backups/
+        # TODO: 192.168.1.30 is not set up yet
+    users:
+      - name: "dbadmin"
+        role: "Database Administrator"
+        email: "dbadmin@tutorialcorp.com"

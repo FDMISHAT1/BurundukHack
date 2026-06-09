@@ -1,0 +1,9 @@
+# BurundukHack Docker Configuration
+# Change these settings or reconfigure via the installer
+
+enabled: false          # Set to true to use Docker containers
+base_image: "debian"    # "debian" (full, ~300MB) or "alpine" (lite, ~50MB)
+memory_limit: "128m"    # RAM limit per container
+cpu_limit: 0.5          # CPU fraction per container
+network_subnet: "192.168.1.0/24"
+auto_cleanup: true      # Remove containers on game exit

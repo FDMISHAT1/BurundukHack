@@ -1,0 +1,678 @@
+# === Language selection ===
+lang:
+  choose: "Choose language / Выберите язык"
+  option_en: "1. English"
+  option_ru: "2. Русский"
+  prompt: "Enter 1 or 2 > "
+
+# === Banners ===
+banner:
+  subtitle: "Realistic Hacking Simulator"
+  edition: "v1.0 — Terminal Edition"
+  access_granted: "ACCESS GRANTED"
+  access_denied: "ACCESS DENIED"
+  mission_complete: "MISSION COMPLETE"
+  shell_obtained: "Shell obtained on {host}"
+  reputation: "Reputation"
+  tools_unlocked: "Tools unlocked"
+  mission_briefing: "MISSION BRIEFING"
+  objectives: "Objectives"
+
+# === Game ===
+game:
+  saved: "Game saved."
+  choose_handle: "Choose your hacker handle > "
+  welcome: "Welcome, {handle}. Loading systems..."
+  no_missions: "No missions found! Check the data/missions/ directory."
+  network_not_found: "Network '{net_id}' not found!"
+  objective_complete: ">>> Objective complete: {desc}"
+  quit_or_continue: "Type 'quit' to exit or continue exploring."
+  use_quit: "Use 'quit' to exit."
+  error: "Error: {error}"
+
+# === Registry ===
+registry:
+  cmd_not_found: "Command not found: {cmd}. Type 'help' for available commands."
+  tool_locked: "Tool '{cmd}' not yet unlocked. Complete missions to unlock new tools."
+
+# === Command help texts ===
+cmd:
+  nmap:
+    help: "Scan a network or host for open ports and services"
+  ping:
+    help: "Check if a host is up"
+  ssh:
+    help: "Connect to a remote host via SSH"
+  disconnect:
+    help: "Disconnect from the current host"
+  exploit:
+    help: "Run an exploit against a vulnerable service"
+  crack:
+    help: "Crack passwords using dictionary attack"
+  ls:
+    help: "List files in current directory"
+  cd:
+    help: "Change directory"
+  cat:
+    help: "Read file contents"
+  download:
+    help: "Download a file from the remote host"
+  help:
+    help: "Show available commands or help for a specific command"
+  status:
+    help: "Show player stats and current access"
+  missions:
+    help: "Show available and completed missions"
+  hint:
+    help: "Get a hint for the current mission"
+  clear:
+    help: "Clear the terminal"
+  quit:
+    help: "Exit the game"
+  osint:
+    help: "Look up information about a target (OSINT)"
+  phish:
+    help: "Send a phishing email to a target"
+  whoami:
+    help: "Print current username"
+  pwd:
+    help: "Print working directory"
+  id:
+    help: "Print user and group IDs"
+  uname:
+    help: "Print system information"
+  hostname:
+    help: "Print system hostname"
+  ifconfig:
+    help: "Show network interfaces"
+  ip:
+    help: "Show / manipulate routing and network"
+  ps:
+    help: "Report a snapshot of current processes"
+  env:
+    help: "Print environment variables"
+  echo:
+    help: "Display a line of text"
+  which:
+    help: "Locate a command"
+  date:
+    help: "Print the system date and time"
+  uptime:
+    help: "Show how long the system has been running"
+  free:
+    help: "Display amount of free and used memory"
+  df:
+    help: "Report file system disk space usage"
+  mount:
+    help: "Show mounted filesystems"
+  netstat:
+    help: "Print network connections"
+  ss:
+    help: "Show socket statistics"
+  sudo:
+    help: "Execute a command as root"
+  su:
+    help: "Switch user"
+  chmod:
+    help: "Change file mode bits"
+  man:
+    help: "Show manual page"
+  history:
+    help: "Show command history"
+  head:
+    help: "Output the first part of files"
+  tail:
+    help: "Output the last part of files"
+  grep:
+    help: "Search file contents for a pattern"
+  wc:
+    help: "Print line, word, and byte counts"
+  apt:
+    help: "Package manager (install, update, search)"
+  touch:
+    help: "Create an empty file"
+  mkdir:
+    help: "Create a directory"
+  rm:
+    help: "Remove files or directories"
+  cp:
+    help: "Copy files"
+  mv:
+    help: "Move or rename files"
+  nano:
+    help: "Simple text editor"
+  vi:
+    help: "Text editor (alias for nano)"
+  strings:
+    help: "Extract printable strings from file"
+  xxd:
+    help: "Hex dump of a file"
+  file:
+    help: "Determine file type"
+  base64:
+    help: "Base64 encode/decode"
+  md5sum:
+    help: "Compute MD5 hash"
+  sha256sum:
+    help: "Compute SHA-256 hash"
+  binwalk:
+    help: "Scan file for embedded data"
+  steghide:
+    help: "Steganography tool (extract/embed hidden data)"
+  exiftool:
+    help: "Read image/file metadata (EXIF, GPS, etc.)"
+  curl:
+    help: "Transfer data from URL (HTTP client)"
+  sort:
+    help: "Sort lines of text"
+  uniq:
+    help: "Report or omit repeated lines"
+  cut:
+    help: "Remove sections from each line"
+  tr:
+    help: "Translate or delete characters"
+  sed:
+    help: "Stream editor for filtering and transforming text"
+  awk:
+    help: "Pattern scanning and text processing"
+  tee:
+    help: "Read from stdin and write to stdout and files"
+  xargs:
+    help: "Build and execute commands from stdin"
+  rev:
+    help: "Reverse lines characterwise"
+  seq:
+    help: "Print a sequence of numbers"
+  export:
+    help: "Set or display environment variables"
+  unset:
+    help: "Remove environment variables"
+  set:
+    help: "Display or set shell variables"
+  alias:
+    help: "Create command aliases"
+  unalias:
+    help: "Remove command aliases"
+  type:
+    help: "Display command type (builtin, alias, file)"
+  exit:
+    help: "Exit the shell"
+  sleep:
+    help: "Pause for specified seconds"
+  kill:
+    help: "Send signal to process"
+  killall:
+    help: "Kill processes by name"
+  find:
+    help: "Search for files in directory hierarchy"
+  test:
+    help: "Evaluate conditional expression"
+  read:
+    help: "Read a line of input into a variable"
+  systemctl:
+    help: "Control systemd services"
+  service:
+    help: "Run a System V init script"
+  dmesg:
+    help: "Print kernel ring buffer messages"
+  journalctl:
+    help: "Query the systemd journal"
+  wget:
+    help: "Non-interactive network downloader"
+  nc:
+    help: "TCP/UDP connections and listeners (netcat)"
+  netcat:
+    help: "TCP/UDP connections and listeners"
+  dig:
+    help: "DNS lookup utility"
+  nslookup:
+    help: "Query DNS name servers"
+  traceroute:
+    help: "Trace route to network host"
+  iptables:
+    help: "Administer IPv4 packet filter rules"
+  scp:
+    help: "Secure copy over SSH"
+  whois:
+    help: "WHOIS domain/IP lookup"
+  stat:
+    help: "Display file status"
+  du:
+    help: "Estimate file space usage"
+  ln:
+    help: "Make links between files"
+  chown:
+    help: "Change file owner and group"
+  passwd:
+    help: "Change user password"
+  useradd:
+    help: "Create a new user"
+  top:
+    help: "Display Linux processes"
+  lsblk:
+    help: "List block devices"
+  lsof:
+    help: "List open files"
+  crontab:
+    help: "Maintain cron jobs"
+  tar:
+    help: "Archive utility"
+  zip:
+    help: "Package and compress files"
+  unzip:
+    help: "Extract compressed files"
+  gzip:
+    help: "Compress files"
+  gunzip:
+    help: "Decompress files"
+  diff:
+    help: "Compare files line by line"
+  printf:
+    help: "Format and print data"
+  column:
+    help: "Columnate lists"
+  od:
+    help: "Dump files in octal and other formats"
+  nl:
+    help: "Number lines of files"
+  true:
+    help: "Do nothing, successfully (exit 0)"
+  false:
+    help: "Do nothing, unsuccessfully (exit 1)"
+  basename:
+    help: "Strip directory from filenames"
+  dirname:
+    help: "Strip last component from path"
+  realpath:
+    help: "Print resolved absolute path"
+  rmdir:
+    help: "Remove empty directories"
+  readlink:
+    help: "Print resolved symbolic link"
+  chgrp:
+    help: "Change group ownership"
+  groupadd:
+    help: "Create a new group"
+  groupdel:
+    help: "Delete a group"
+  paste:
+    help: "Merge lines of files"
+  hexdump:
+    help: "Display file in hexadecimal"
+  shred:
+    help: "Overwrite a file to hide its contents"
+  w:
+    help: "Show who is logged on and what they are doing"
+  who:
+    help: "Show who is logged on"
+  users:
+    help: "Print logged in users"
+  last:
+    help: "Show listing of last logged in users"
+  yes:
+    help: "Output a string repeatedly"
+  mktemp:
+    help: "Create a temporary file or directory"
+  tac:
+    help: "Concatenate and print files in reverse"
+  comm:
+    help: "Compare two sorted files line by line"
+  expand:
+    help: "Convert tabs to spaces"
+  unexpand:
+    help: "Convert spaces to tabs"
+  nohup:
+    help: "Run a command immune to hangups"
+  reset:
+    help: "Reset terminal"
+  source:
+    help: "Execute commands from a file in the current shell"
+  eval:
+    help: "Evaluate arguments as a shell command"
+  expr:
+    help: "Evaluate expressions (arithmetic, string)"
+  let:
+    help: "Evaluate arithmetic expressions"
+  timeout:
+    help: "Run a command with a time limit"
+  pgrep:
+    help: "Find processes by name"
+  pkill:
+    help: "Kill processes by name"
+  host:
+    help: "DNS lookup utility"
+  ssh-keygen:
+    help: "Generate SSH key pairs"
+  bzip2:
+    help: "Compress files using bzip2"
+  xz:
+    help: "Compress files using xz"
+  usermod:
+    help: "Modify a user account"
+  userdel:
+    help: "Delete a user account"
+  getent:
+    help: "Get entries from administrative databases"
+  jobs:
+    help: "List active jobs"
+  bg:
+    help: "Resume job in background"
+  fg:
+    help: "Resume job in foreground"
+  trap:
+    help: "Trap signals and events"
+  wait:
+    help: "Wait for background processes"
+  locate:
+    help: "Find files by name (fast, uses database)"
+  whereis:
+    help: "Locate the binary, source, and manual page for a command"
+  cal:
+    help: "Display a calendar"
+  bc:
+    help: "Arbitrary precision calculator"
+  watch:
+    help: "Execute a program periodically"
+  lscpu:
+    help: "Display CPU architecture information"
+  lsusb:
+    help: "List USB devices"
+  lspci:
+    help: "List PCI devices"
+  vmstat:
+    help: "Report virtual memory statistics"
+  nice:
+    help: "Run a command with modified scheduling priority"
+  renice:
+    help: "Alter priority of running processes"
+  stty:
+    help: "Change and print terminal line settings"
+  logger:
+    help: "Enter messages into the system log"
+  wall:
+    help: "Send a message to all users"
+  fold:
+    help: "Wrap each input line to fit in specified width"
+  fmt:
+    help: "Simple optimal text formatter"
+  screen:
+    help: "Terminal multiplexer"
+  tmux:
+    help: "Terminal multiplexer"
+  telnet:
+    help: "User interface to the TELNET protocol"
+  arp:
+    help: "Manipulate the system ARP cache"
+  tcpdump:
+    help: "Capture and analyze network packets"
+  openssl:
+    help: "OpenSSL command line tool"
+  git:
+    help: "Distributed version control system"
+  python3:
+    help: "Python programming language interpreter"
+  gcc:
+    help: "GNU C compiler"
+  make:
+    help: "GNU make utility"
+  mkfifo:
+    help: "Create a named pipe (FIFO)"
+  truncate:
+    help: "Shrink or extend the size of a file"
+  install:
+    help: "Copy files and set attributes"
+  split:
+    help: "Split a file into pieces"
+  tput:
+    help: "Initialize a terminal or query terminfo database"
+  dc:
+    help: "Reverse Polish notation desk calculator"
+  join:
+    help: "Join lines of two files on a common field"
+  htop:
+    help: "Interactive process viewer"
+  renice:
+    help: "Alter priority of running processes"
+  chroot:
+    help: "Run command with a different root directory"
+  less:
+    help: "View file contents (pager)"
+  more:
+    help: "View file contents (pager)"
+  tree:
+    help: "List directory contents in a tree-like format"
+  time:
+    help: "Run command and report time taken"
+  dd:
+    help: "Convert and copy a file"
+  umask:
+    help: "Display or set file mode creation mask"
+  ulimit:
+    help: "Display or modify shell resource limits"
+  sysctl:
+    help: "Configure kernel parameters at runtime"
+  ldd:
+    help: "Print shared object dependencies"
+  strace:
+    help: "Trace system calls and signals"
+  dpkg:
+    help: "Debian package manager"
+  rsync:
+    help: "Remote (and local) file-copying tool"
+  cpio:
+    help: "Copy files to and from archives"
+  patch:
+    help: "Apply a diff file to an original"
+  rename:
+    help: "Rename files using perl expressions"
+  uuidgen:
+    help: "Create a new UUID value"
+  xdg-open:
+    help: "Open a file or URL in the preferred application"
+  fuser:
+    help: "Identify processes using files or sockets"
+  iconv:
+    help: "Convert encoding of given files"
+  at:
+    help: "Execute commands at a later time"
+  apropos:
+    help: "Search the manual page descriptions"
+  pv:
+    help: "Monitor the progress of data through a pipe"
+  ar:
+    help: "Create, modify, and extract from archives"
+  shutdown:
+    help: "Halt, power-off or reboot the machine"
+  gpg:
+    help: "OpenPGP encryption and signing tool"
+  locale:
+    help: "Get locale-specific information"
+  pidof:
+    help: "Find the process ID of a running program"
+  modprobe:
+    help: "Add and remove modules from the Linux Kernel"
+  modinfo:
+    help: "Show information about a Linux Kernel module"
+  blkid:
+    help: "Locate/print block device attributes"
+  fdisk:
+    help: "Manipulate disk partition table"
+  finger:
+    help: "User information lookup program"
+  timedatectl:
+    help: "Control the system time and date"
+  swapon:
+    help: "Enable/disable swap devices"
+  nmcli:
+    help: "NetworkManager command-line tool"
+  runlevel:
+    help: "Print previous and current SysV runlevel"
+
+# === Help command ===
+help:
+  available: "Available Commands"
+  locked: "locked"
+  locked_full: "locked — complete missions to unlock"
+  unknown_cmd: "Unknown command: {cmd}"
+  cat_recon: "Recon"
+  cat_access: "Access"
+  cat_filesystem: "Filesystem"
+  cat_info: "Info"
+  cat_linux: "Linux"
+  cat_network: "Network"
+  cat_archive: "Archives"
+  cat_textutil: "Text Utilities"
+  cat_nettools: "Network Tools"
+  cat_shell: "Shell"
+  cat_sysadmin: "System Admin"
+  cat_text: "Text Processing"
+  cat_forensics: "Forensics / CTF"
+  cat_packages: "Packages"
+  cat_system: "System"
+  cat_dev: "Development"
+
+# === Status command ===
+status:
+  handle: "Handle"
+  reputation: "Reputation"
+  connected: "Connected"
+  access: "Access"
+  mission: "Mission"
+  known_creds: "Known Credentials"
+
+# === Missions command ===
+missions:
+  no_active: "No active mission."
+  no_hints: "No more hints available for this mission."
+
+# === Quit command ===
+quit:
+  thanks: "Thanks for playing BurundukHack!"
+  motto: "Stay ethical. Stay curious."
+
+# === Nmap ===
+nmap:
+  usage: "Usage: nmap <ip or subnet>"
+  example_subnet: "Example: nmap 192.168.1.0/24   (scan subnet)"
+  example_host: "Example: nmap 192.168.1.10     (scan single host)"
+  no_network: "No active network. Start a mission first."
+  unreachable: "Cannot reach network {target}"
+  starting: "Starting Nmap scan of {target}..."
+  results_for: "Nmap scan results for {target}"
+  host_not_found: "Host {target} not found or unreachable."
+  done: "Nmap done: {count} hosts up"
+  header_host: "HOST"
+  header_status: "STATUS"
+  header_hostname: "HOSTNAME"
+  header_port: "PORT"
+  header_state: "STATE"
+  header_service: "SERVICE"
+  header_version: "VERSION"
+  potentially_vulnerable: "POTENTIALLY VULNERABLE"
+
+# === Ping ===
+ping:
+  usage: "Usage: ping <ip>"
+  up: "PING {target}: 64 bytes, time=12.3ms — Host is up"
+  down: "PING {target}: Request timed out — Host is down or unreachable"
+
+# === SSH ===
+ssh:
+  usage: "Usage: ssh <user>@<ip>"
+  example: "Example: ssh admin@192.168.1.10"
+  no_network: "No active network."
+  host_not_found: "Connection refused: {ip} — host not found."
+  no_ssh: "Connection refused: SSH not running on {ip}"
+  auth_failed: "Authentication failed for {user}@{ip}"
+  hint_creds: "Hint: Try cracking the password or finding credentials elsewhere."
+  connecting: "Connecting to {ip}"
+  authenticating: "Authenticating as {user}@{ip}"
+
+# === Disconnect ===
+disconnect:
+  not_connected: "Not connected to any host."
+  done: "Disconnected from {ip}"
+
+# === Exploit ===
+exploit:
+  usage: "Usage: exploit <exploit_name> <ip>"
+  example: "Example: exploit ssh_enum_users 192.168.1.10"
+  tip_nmap: "Tip: Use 'nmap <ip>' to discover vulnerable services"
+  no_network: "No active network."
+  host_not_found: "Host {ip} not found."
+  not_discovered: "Host {ip} not yet discovered. Run nmap first."
+  already_compromised: "Host {ip} is already compromised. Use 'ssh' to connect."
+  failed: "Exploit '{name}' failed — no matching vulnerability on {ip}."
+  tip_check: "Tip: Check nmap results for vulnerable services and their exploit names."
+  creds_found: "Credentials found: {user}:{password}"
+
+# === Crack ===
+crack:
+  usage: "Usage: crack <ip> [--service <service_name>]"
+  example1: "Example: crack 192.168.1.10"
+  example2: "Example: crack 192.168.1.10 --service ssh"
+  no_crackable: "No crackable services found on {ip}."
+  starting: "Starting dictionary attack on {ip}:{port} ({service})"
+  target_user: "Target user: {user}"
+  cracked: "Password cracked! {user}:{password}"
+  failed: "Dictionary attack failed — password not in wordlist."
+  tip_files: "Tip: Try finding credentials in files on other compromised hosts."
+
+# === Filesystem ===
+fs:
+  not_connected: "Not connected to any host. Use 'ssh' to connect first."
+  empty_dir: "(empty directory)"
+  no_such_dir: "cd: {path}: No such directory"
+  cat_usage: "Usage: cat <filename>"
+  no_such_file: "cat: {path}: No such file"
+  permission_denied: "cat: {path}: Permission denied (requires root access)"
+  download_usage: "Usage: download <filename>"
+  download_no_file: "download: {path}: No such file"
+  download_denied: "download: {path}: Permission denied (requires root access)"
+  downloading: "Downloading {path}"
+  downloaded: "File downloaded: {path}"
+  saved_to: "Saved to ~/loot/{filename}"
+  creds_discovered: "Credentials discovered: {user}:{password} for {host}"
+
+# === Animations ===
+anim:
+  initiating_scan: "Initiating scan..."
+  discovered_host: "Discovered host: {ip}"
+  scanning: "Scanning {target}"
+  cracking: "Cracking"
+  launching_exploit: "Launching exploit: {name}"
+  target: "Target: {target}"
+  stage_connect: "Connecting to target..."
+  stage_payload: "Sending payload..."
+  stage_exploit: "Exploiting vulnerability..."
+  stage_backdoor: "Establishing backdoor..."
+  stage_shell: "Gaining shell access..."
+
+# === Installer ===
+installer:
+  create_user: "Create user account"
+  username: "Username:"
+  set_password: "Set password"
+  password: "Password:"
+  confirm: "Confirm password:"
+  mismatch: "Passwords do not match — using the first one."
+  installing: "Installing BurundukOS..."
+  step_base: "Installing base system"
+  step_kernel: "Configuring kernel"
+  step_network: "Setting up networking"
+  step_tools: "Installing penetration testing tools"
+  step_user: "Creating user account"
+  step_grub: "Installing bootloader (GRUB)"
+  complete: "Installation complete!"
+  rebooting: "Rebooting system"
+
+# === Login ===
+login:
+  username: "login:"
+  password: "Password:"
+  failed: "Login incorrect"
+  locked: "Account locked after too many failed attempts."
+
+# === APT ===
+apt:
+  updating: "Fetching package lists"

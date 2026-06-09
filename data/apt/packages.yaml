@@ -1,0 +1,170 @@
+packages:
+  # --- Hacking tools ---
+  - name: nmap
+    version: "7.80-1"
+    description: "Network exploration tool and security / port scanner"
+    size: "5,124 kB"
+    binary: nmap
+    unlocks_tool: null
+
+  - name: hydra
+    version: "9.1-1"
+    description: "Fast and flexible online password cracking tool"
+    size: "2,048 kB"
+    binary: hydra
+    unlocks_tool: null
+
+  - name: john
+    version: "1.9.0-2"
+    description: "Active password cracking tool (John the Ripper)"
+    size: "12,288 kB"
+    binary: john
+    unlocks_tool: null
+
+  - name: nikto
+    version: "2.1.6-3"
+    description: "Web server security scanner"
+    size: "3,072 kB"
+    binary: nikto
+    unlocks_tool: null
+
+  - name: sqlmap
+    version: "1.5.2-1"
+    description: "Automatic SQL injection and database takeover tool"
+    size: "8,192 kB"
+    binary: sqlmap
+    unlocks_tool: null
+
+  - name: metasploit-framework
+    version: "6.3.4-1"
+    description: "Advanced open-source platform for developing and using exploit code"
+    size: "245,760 kB"
+    binary: msfconsole
+    unlocks_tool: null
+
+  - name: aircrack-ng
+    version: "1.7-1"
+    description: "Wireless network security assessment tool"
+    size: "4,096 kB"
+    binary: aircrack-ng
+    unlocks_tool: null
+
+  - name: wireshark
+    version: "3.4.10-1"
+    description: "Network traffic analyzer"
+    size: "18,432 kB"
+    binary: wireshark
+    unlocks_tool: null
+
+  - name: burpsuite
+    version: "2024.2-1"
+    description: "Integrated platform for web application security testing"
+    size: "524,288 kB"
+    binary: burpsuite
+    unlocks_tool: null
+
+  - name: gobuster
+    version: "3.6.0-1"
+    description: "Directory/file & DNS busting tool written in Go"
+    size: "8,192 kB"
+    binary: gobuster
+    unlocks_tool: null
+
+  - name: enum4linux
+    version: "0.9.1-1"
+    description: "Tool for enumerating information from Windows and Samba systems"
+    size: "512 kB"
+    binary: enum4linux
+    unlocks_tool: null
+
+  - name: hashcat
+    version: "6.2.5-1"
+    description: "Advanced CPU-based password recovery utility"
+    size: "16,384 kB"
+    binary: hashcat
+    unlocks_tool: null
+
+  # --- Standard tools ---
+  - name: net-tools
+    version: "1.60-26"
+    description: "NET-3 networking toolkit (ifconfig, netstat, etc.)"
+    size: "512 kB"
+    binary: null
+    unlocks_tool: null
+
+  - name: curl
+    version: "7.68.0-1"
+    description: "Command line tool for transferring data with URLs"
+    size: "1,024 kB"
+    binary: curl
+    unlocks_tool: null
+
+  - name: wget
+    version: "1.20.3-1"
+    description: "Non-interactive network downloader"
+    size: "1,024 kB"
+    binary: wget
+    unlocks_tool: null
+
+  - name: git
+    version: "2.25.1-1"
+    description: "Fast, scalable, distributed revision control system"
+    size: "12,288 kB"
+    binary: git
+    unlocks_tool: null
+
+  - name: python3-pip
+    version: "20.0.2-5"
+    description: "Python package installer"
+    size: "2,048 kB"
+    binary: pip3
+    unlocks_tool: null
+
+  - name: vim
+    version: "8.1.2269-1"
+    description: "Vi IMproved - enhanced vi editor"
+    size: "3,072 kB"
+    binary: vim
+    unlocks_tool: null
+
+  - name: tmux
+    version: "3.0a-2"
+    description: "Terminal multiplexer"
+    size: "512 kB"
+    binary: tmux
+    unlocks_tool: null
+
+  - name: htop
+    version: "2.2.0-2"
+    description: "Interactive process viewer"
+    size: "256 kB"
+    binary: htop
+    unlocks_tool: null
+
+  - name: tree
+    version: "1.8.0-1"
+    description: "Indented directory listing utility"
+    size: "128 kB"
+    binary: tree
+    unlocks_tool: null
+
+  - name: openssh-server
+    version: "1:8.2p1-4"
+    description: "Secure shell (SSH) server"
+    size: "920 kB"
+    binary: sshd
+    unlocks_tool: null
+
+  - name: mysql-client
+    version: "5.7.31-1"
+    description: "MySQL database client"
+    size: "4,096 kB"
+    binary: mysql
+    unlocks_tool: null
+
+  - name: postgresql-client
+    version: "12-1"
+    description: "Front-end programs for PostgreSQL"
+    size: "3,072 kB"
+    binary: psql
+    unlocks_tool: null

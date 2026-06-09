@@ -1,0 +1,96 @@
+id: "mission_01"
+title:
+  en: "Tutorial: First Steps"
+  ru: "Обучение: Первые шаги"
+briefing:
+  en: |
+    Welcome, hacker.
+
+    Your client has hired you to perform a penetration test
+    on TutorialCorp — a small web development company with
+    questionable security practices.
+
+    Your mission: gain access to their network, find the
+    customer database, and extract it as proof of vulnerability.
+
+    Target network: 192.168.1.0/24
+
+    Start by scanning the network to discover what's out there.
+    Look for vulnerable services, weak credentials, and files
+    that contain useful information.
+
+    Good luck. Don't get caught.
+  ru: |
+    Добро пожаловать, хакер.
+
+    Клиент нанял тебя для проведения теста на проникновение
+    в TutorialCorp — небольшую веб-студию с сомнительной
+    политикой безопасности.
+
+    Твоя задача: получить доступ к их сети, найти базу данных
+    клиентов и извлечь её как доказательство уязвимости.
+
+    Целевая сеть: 192.168.1.0/24
+
+    Начни со сканирования сети, чтобы узнать, что там есть.
+    Ищи уязвимые сервисы, слабые пароли и файлы
+    с полезной информацией.
+
+    Удачи. Не попадись.
+
+network_id: "tutorial_net"
+prerequisites: []
+objectives:
+  - id: "scan_network"
+    description:
+      en: "Scan the network to discover all hosts"
+      ru: "Просканировать сеть и обнаружить все хосты"
+    objective_type: "discover_hosts"
+    target:
+      network: "tutorial_net"
+      count: 3
+  - id: "compromise_workstation"
+    description:
+      en: "Gain access to the dev workstation (192.168.1.10)"
+      ru: "Получить доступ к рабочей станции разработчика (192.168.1.10)"
+    objective_type: "compromise_host"
+    target:
+      ip: "192.168.1.10"
+  - id: "find_db_creds"
+    description:
+      en: "Find the database credentials on the workstation"
+      ru: "Найти учётные данные от базы данных на рабочей станции"
+    objective_type: "read_file"
+    target:
+      ip: "192.168.1.10"
+      file: "/opt/config.ini"
+  - id: "steal_database"
+    description:
+      en: "Download the customer database from the DB server"
+      ru: "Скачать базу данных клиентов с сервера БД"
+    objective_type: "download_file"
+    target:
+      ip: "192.168.1.20"
+      file: "/var/lib/mysql/customers.db"
+rewards:
+  reputation: 100
+  unlock_tools:
+    - "osint"
+    - "phish"
+hints:
+  en:
+    - "Start by scanning the network: nmap 192.168.1.0/24"
+    - "Now scan individual hosts to find open ports: nmap 192.168.1.10"
+    - "Look for services marked as POTENTIALLY VULNERABLE in nmap results"
+    - "Use the exploit name from nmap results: exploit ssh_enum_users 192.168.1.10"
+    - "Once connected, explore files: ls, cd, cat — look for credentials"
+    - "Found DB credentials? Disconnect and SSH to the DB server"
+    - "On the DB server, download the target file: download /var/lib/mysql/customers.db"
+  ru:
+    - "Начни со сканирования сети: nmap 192.168.1.0/24"
+    - "Теперь сканируй отдельные хосты: nmap 192.168.1.10"
+    - "Ищи сервисы, помеченные как ПОТЕНЦИАЛЬНО УЯЗВИМ в результатах nmap"
+    - "Используй имя эксплойта из результатов nmap: exploit ssh_enum_users 192.168.1.10"
+    - "После подключения исследуй файлы: ls, cd, cat — ищи учётные данные"
+    - "Нашёл пароль от БД? Отключись и подключись по SSH к серверу БД"
+    - "На сервере БД скачай целевой файл: download /var/lib/mysql/customers.db"
