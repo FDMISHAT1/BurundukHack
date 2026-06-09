@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(echo \"---EXIT:$?---\")",
+      "Bash(python3 *)",
+      "Bash(pip install *)",
+      "Bash(wc -l /home/burunduk/claude/BurundukHack/commands/*.py)",
+      "Bash(grep -c \"def handle_\" /home/burunduk/claude/BurundukHack/commands/*.py)",
+      "Bash(grep \"def handle_\" /home/burunduk/claude/BurundukHack/commands/*.py)"
+    ]
+  }
+}

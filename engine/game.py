@@ -379,10 +379,15 @@ class Game:
                 on_progress=progress,
             )
 
-        # Set up localhost
+        # Set up localhost — use .254 in the mission subnet
+        net_name = self.current_mission.network_id if self.current_mission else "default"
+        subnet = self.current_network.subnet if self.current_network else "192.168.1.0/24"
+        # Derive .254 from subnet
+        base = subnet.rsplit(".", 1)[0]
+        kali_ip = f"{base}.254"
         self.container_manager.setup_localhost(
-            network_name=self.current_mission.network_id if self.current_mission else "default",
-            ip="10.10.10.5",
+            network_name=net_name,
+            ip=kali_ip,
             handle=self.player.handle,
             on_progress=progress,
         )

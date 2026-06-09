@@ -93,7 +93,7 @@ PACKAGES = {
             "python3 gcc make git "
             "whois traceroute tcpdump socat "
             "tar gzip bzip2 xz zip unzip "
-            "diffutils patch bc dc "
+            "diffutils patch bc "
             "sudo shadow"
         ),
     },
@@ -107,7 +107,7 @@ PACKAGES = {
     },
     "router": {
         "debian": "bash iproute2 iptables net-tools procps",
-        "alpine": "bash iproute2 iptables net-tools procps",
+        "alpine": "bash iproute2 net-tools procps",
     },
 }
 
@@ -152,29 +152,29 @@ def _generate_dockerfile(role: str, base: str, users: list[dict] | None = None,
         lines.append(ssh_setup)
         lines.append("")
 
-    # Create users
-    if users:
-        for user in users:
-            name = user.get("name", "user")
-            shell = user.get("shell", "/bin/bash")
-            if base == "alpine":
-                lines.append(f"RUN adduser -D -s {shell} {name} && echo '{name}:{user.get('password', name)}' | chpasswd")
-            else:
-                lines.append(f"RUN useradd -m -s {shell} {name} && echo '{name}:{user.get('password', name)}' | chpasswd")
-
     # Kali-specific setup
     if role == "kali":
         lines.append("")
         lines.append('RUN echo "export PS1=\\"\\\\u@kali:\\\\w\\\\$ \\"" >> /etc/bash.bashrc')
         if base == "alpine":
-            lines.append("RUN adduser -D -s /bin/bash pentester && echo 'pentester:pentester' | chpasswd")
+            lines.append("RUN adduser -D -s /bin/bash pentester 2>/dev/null; echo 'pentester:pentester' | chpasswd")
             lines.append("RUN echo 'pentester ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers")
         else:
-            lines.append("RUN useradd -m -s /bin/bash -G sudo pentester && echo 'pentester:pentester' | chpasswd")
+            lines.append("RUN useradd -m -s /bin/bash -G sudo pentester 2>/dev/null; echo 'pentester:pentester' | chpasswd")
             lines.append("RUN echo 'pentester ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers")
         lines.append("USER pentester")
         lines.append("WORKDIR /home/pentester")
         lines.append("RUN mkdir -p loot .ssh")
+    else:
+        # Create users for non-kali roles
+        if users:
+            for user in users:
+                name = user.get("name", "user")
+                shell = user.get("shell", "/bin/bash")
+                if base == "alpine":
+                    lines.append(f"RUN adduser -D -s {shell} {name} && echo '{name}:{user.get('password', name)}' | chpasswd")
+                else:
+                    lines.append(f"RUN useradd -m -s {shell} {name} && echo '{name}:{user.get('password', name)}' | chpasswd")
 
     lines.append("")
     lines.append('CMD ["sleep", "infinity"]')
@@ -519,13 +519,8 @@ class ContainerManager:
                 on_progress("Building Kali workstation image...")
             build_image("kali", base, tag, on_progress=on_progress)
 
-        # We need a separate network for localhost if subnet differs
-        # For simplicity, attach to first available network
+        # Use the mission network directly
         net = network_name
-        if net not in self.networks:
-            # Create a management network
-            create_network("mgmt", "10.10.10.0/24")
-            net = "mgmt"
 
         if on_progress:
             on_progress("Starting Kali workstation...")

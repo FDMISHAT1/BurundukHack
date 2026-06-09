@@ -1,34 +1,13 @@
-FROM debian:bookworm-slim
+FROM alpine:3.19
 
-# Kali-like pentesting workstation
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    bash coreutils grep sed awk findutils procps net-tools \
-    iputils-ping iproute2 curl wget netcat-openbsd nmap dnsutils \
-    openssh-client vim nano less file tree \
-    python3 python3-pip gcc make git \
-    whois traceroute tcpdump socat \
-    tar gzip bzip2 xz-utils zip unzip \
-    diffutils patch bc dc \
-    man-db manpages \
-    sudo passwd \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache bash coreutils grep sed gawk findutils procps net-tools iputils iproute2 curl wget nmap-ncat nmap bind-tools openssh-client vim nano less file tree python3 gcc make git whois traceroute tcpdump socat tar gzip bzip2 xz zip unzip diffutils patch bc sudo shadow
 
-# Create pentester user
-RUN useradd -m -s /bin/bash -G sudo pentester && \
-    echo "pentester:pentester" | chpasswd && \
-    echo "pentester ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-# Setup realistic environment
-RUN echo 'export PS1="\u@kali:\w\$ "' >> /home/pentester/.bashrc && \
-    echo 'alias ll="ls -lah"' >> /home/pentester/.bashrc && \
-    echo 'alias la="ls -la"' >> /home/pentester/.bashrc && \
-    mkdir -p /home/pentester/loot /home/pentester/.ssh
-
-COPY motd /etc/motd
-RUN echo "cat /etc/motd" >> /home/pentester/.bashrc
-
+RUN echo "export PS1=\"\\u@kali:\\w\\$ \"" >> /etc/bash.bashrc
+RUN adduser -D -s /bin/bash pentester 2>/dev/null; echo 'pentester:pentester' | chpasswd
+RUN echo 'pentester ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER pentester
 WORKDIR /home/pentester
+RUN mkdir -p loot .ssh
 
-# Keep container alive
 CMD ["sleep", "infinity"]
